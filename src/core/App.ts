@@ -16,6 +16,14 @@ class App {
     private static _app: PIXI.Application;
 
     /**
+     * the pixi applications
+     * @returns {PIXI.Application}
+     */
+    public static get app(): PIXI.Application {
+        return this._app;
+    }
+
+    /**
      * return the renderer type. can be either webgl or canvas
      * @type {string}
      */
@@ -76,6 +84,7 @@ class App {
     public static setScreenSize(width: number, height: number) {
         this.width = width;
         this.height = height;
+        this._app.renderer.resize(this.width, this.height);
     }
 
     /**
@@ -101,5 +110,19 @@ class App {
         renderer.view.style.right = "0%";
         renderer.view.style.top = "0%";
         renderer.resize(window.innerWidth, window.innerHeight);
+    }
+
+    /**
+     * start the game loop
+     */
+    public static start() {
+        this._app.start();
+    }
+
+    /**
+     * stop the game loop
+     */
+    public static stop() {
+        this._app.stop();
     }
 }
