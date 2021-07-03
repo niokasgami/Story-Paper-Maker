@@ -10,13 +10,21 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@pixi": [
+        "../libs/pixi.mjs",
+        "pixi.js"
+      ]
+    },
+    "declaration": false,
     "noEmit": false,
     "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./Content/Datas/Scripts/System"
+    "noImplicitOverride": true,
+    "outDir": "./app/packages/engine"
   },
   "include": [
     "./src/**/*.ts"

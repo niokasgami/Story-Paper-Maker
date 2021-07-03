@@ -9,7 +9,9 @@
         http://rpg-paper-maker.com/index.php/eula.
 */
 
-const { app, BrowserWindow, globalShortcut, dialog, screen } = require('electron')
+
+// TODO : fix the import.
+const {app, BrowserWindow, globalShortcut, dialog, screen} = require('electron');
 
 if (process.argv.length === 3) {
     global.modeTest = process.argv[2];
@@ -19,7 +21,7 @@ if (process.argv.length === 3) {
 let ipc = require('electron').ipcMain;
 let window;
 
-function createWindow () {
+function createWindow() {
     let width = screen.getPrimaryDisplay().bounds.width;
     let height = screen.getPrimaryDisplay().bounds.height;
     window = new BrowserWindow({
@@ -29,7 +31,8 @@ function createWindow () {
         resizable: false,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true
+            enableRemoteModule: true,
+            contextIsolation: false
         }
     });
     if (global.modeTest === "showTextPreview") {
@@ -61,10 +64,10 @@ function createWindow () {
     window.removeMenu();
 }
 
-app.whenReady().then(()=>
-globalShortcut.register('Alt+CommandOrControl+I', () => {
-    window.openDevTools({mode:'undocked'})
-  })
+app.whenReady().then(() =>
+    globalShortcut.register('F8', () => {
+        window.openDevTools({mode: 'undocked'})
+    })
 ).then(createWindow)
 app.commandLine.appendSwitch('high-dpi-support', 'true');
 app.commandLine.appendSwitch('force-device-scale-factor', '1');

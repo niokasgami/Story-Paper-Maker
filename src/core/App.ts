@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import {Utils} from "../Common";
 
 
+
 /**
  * the Main class who initialize the pixi js canvas
  * @class App
@@ -53,8 +54,7 @@ class App {
         this.checkWebglAvailability();
         this.width = 680;
         this.height = 680;
-        this.run();
-
+        this.createApplication();
     }
 
     public static checkWebglAvailability() {
@@ -64,9 +64,6 @@ class App {
         PIXI.utils.sayHello(this.renderType);
     }
 
-    public static run() {
-        this.createApplication();
-    }
 
     /**
      * set the stage where the game will run.

@@ -1,4 +1,4 @@
-import * as PIXI from "pixi.js";
+import {PIXI} from "./globals.js";
 
 //========================================================================================
 // ASSETS
@@ -9,7 +9,7 @@ import * as PIXI from "pixi.js";
  * @type {{path: string, key: string}[]}
  */
 const assets = [
-    {key: "dummy", path: "test/dummy.png"}
+    // {key: "dummy", path: "test/dummy.png"}
 ];
 
 //========================================================================================
@@ -81,12 +81,15 @@ function findByKey(key: string): string {
 
 function setup() {
     startLoop();
-    let sprite = new PIXI.Sprite(getAssets("dummy").texture);
+
 }
 
 function startLoop() {
     app.ticker.add(delta => update(delta));
 }
+
+let text = new PIXI.Text('This is a PixiJS text', {fontFamily: 'Arial', fontSize: 24, fill: 0xff1010, align: 'center'});
+app.stage.addChild(text);
 
 function update(delta) {
 

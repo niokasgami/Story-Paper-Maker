@@ -21,8 +21,6 @@ class ImageLoader {
 
 }
 
-ImageLoader.create("test", Paths.tileset("Mytilesets"));
-
 const tile = ImageLoader.get("test");
 tile.height = 10;
 
