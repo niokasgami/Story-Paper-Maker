@@ -12,8 +12,5 @@ import {ELECTRON_TYPE, PIXI_TYPE} from "./references";
 // @ts-ignore
 import * as pixiRef from "../libs/pixi.js";
 
-export const PIXI: typeof PIXI_TYPE = pixiRef;
+export const PIXI = pixiRef;
 const electron = require("electron");
-
-
-

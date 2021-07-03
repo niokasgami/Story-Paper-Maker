@@ -1,13 +1,11 @@
-import * as PIXI from "pixi.js";
+import {PIXI} from "../globals";
 import {Utils} from "../Common";
-
-
 
 /**
  * the Main class who initialize the pixi js canvas
- * @class App
+ * @class Application
  */
-class App {
+class Application {
 
     /**
      * the pixi applications.
@@ -22,6 +20,14 @@ class App {
      */
     public static get app(): PIXI.Application {
         return this._app;
+    }
+
+    /**
+     * the pixi renderer
+     * @returns {PIXI.Renderer | PIXI.AbstractRenderer}
+     */
+    public static get renderer(): PIXI.Renderer | PIXI.AbstractRenderer {
+        return this._app.renderer;
     }
 
     /**

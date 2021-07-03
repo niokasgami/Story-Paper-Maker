@@ -17,6 +17,7 @@
         "pixi.js"
       ]
     },
+    "allowjs": true,
     "declaration": false,
     "noEmit": false,
     "strict": false,
